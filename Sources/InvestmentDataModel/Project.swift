@@ -16,6 +16,18 @@ public struct Project: Identifiable {
     public var entities: [Entity]
     public var transactions: [Transaction]
     
+    public init(
+        name: String,
+        note: String,
+        entities: [Entity],
+        transactions: [Transaction]
+    ) {
+        self.name = name
+        self.note = note
+        self.entities = entities
+        self.transactions = transactions
+    }
+    
     public var flows: [CashFlow] {
         transactions
             .compactMap { transaction in

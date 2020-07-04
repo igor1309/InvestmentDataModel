@@ -10,4 +10,8 @@ import Foundation
 public struct Entity: Identifiable, Equatable {
     public var id = UUID()
     public var name: String
+    
+    public init(_ name: String) {
+        self.name = name
+    }
 }

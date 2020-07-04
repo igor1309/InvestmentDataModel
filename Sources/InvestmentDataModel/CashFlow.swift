@@ -15,6 +15,18 @@ public struct CashFlow: Identifiable {
     public var amount: Double
     public var currency: Currency
     
+    public init(
+        date: Date,
+        type: CashFlowType,
+        amount: Double,
+        currency: Currency
+    ) {
+        self.date = date
+        self.type = type
+        self.amount = amount
+        self.currency = currency
+    }
+    
     public enum CashFlowType: Double {
         case inflow = 1.0
         case outflow = -1.0

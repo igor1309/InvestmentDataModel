@@ -15,4 +15,21 @@ public struct Transaction: Identifiable {
     public var sender: Entity
     public var recipient: Entity
     public var note: String
+    
+    public init(
+        date: Date,
+        amount: Double,
+        currency: Currency,
+        sender: Entity,
+        recipient: Entity,
+        note: String
+    ) {
+        self.date = date
+        self.amount = amount
+        self.currency = currency
+        self.sender = sender
+        self.recipient = recipient
+        self.note = note
+    }
+    
 }
