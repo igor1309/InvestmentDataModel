@@ -14,26 +14,26 @@ public struct Project: Identifiable {
     public var note: String
     
     public var entities: [Entity]
-    public var transactions: [Transaction]
+    public var payments: [Payment]
     
     public init(
         name: String,
         note: String,
         entities: [Entity],
-        transactions: [Transaction]
+        payments: [Payment]
     ) {
         self.name = name
         self.note = note
         self.entities = entities
-        self.transactions = transactions
+        self.payments = payments
     }
     
     public var flows: [CashFlow] {
-        transactions
-            .compactMap { transaction in
+        payments
+            .compactMap { payment in
                 //  derive cash flow type from sender and recipient entities
-                let isRecipient = entities.contains { $0 == transaction.recipient }
-                let isSender = entities.contains { $0 == transaction.sender }
+                let isRecipient = entities.contains { $0 == payment.recipient }
+                let isSender = entities.contains { $0 == payment.sender }
                 
                 let type: CashFlow.CashFlowType
                 if isRecipient  {
@@ -41,14 +41,14 @@ public struct Project: Identifiable {
                 } else if isSender {
                     type = .outflow
                 } else {
-                    print("error: \(name) is neither a sender or recipient in the transaction \(id)")
+                    print("error: \(name) is neither a sender or recipient in the payment \(id)")
                     return nil
                 }
                 
-                return CashFlow(date: transaction.date,
+                return CashFlow(date: payment.date,
                                 type: type,
-                                amount: transaction.amount,
-                                currency: transaction.currency)
+                                amount: payment.amount,
+                                currency: payment.currency)
             }
     }
     
