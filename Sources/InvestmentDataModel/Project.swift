@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Project: Identifiable {
-    var id = UUID()
+public struct Project: Identifiable {
+    public var id = UUID()
     
-    var name: String
-    var note: String
+    public var name: String
+    public var note: String
     
-    var entities: [Entity]
-    var transactions: [Transaction]
+    public var entities: [Entity]
+    public var transactions: [Transaction]
     
-    var flows: [CashFlow] {
+    public var flows: [CashFlow] {
         transactions
             .compactMap { transaction in
                 //  derive cash flow type from sender and recipient entities
@@ -40,23 +40,23 @@ struct Project: Identifiable {
             }
     }
     
-    var totalInflows: Double {
+    public var totalInflows: Double {
         flows
             .filter { $0.type == .inflow }
             .map { $0.amount }
             .reduce(0, +)
     }
     
-    var totalOutflows: Double {
+    public var totalOutflows: Double {
         flows
             .filter { $0.type == .outflow }
             .map { $0.amount }
             .reduce(0, +)
     }
     
-    var netFlows: Double { totalInflows - totalOutflows }
+    public var netFlows: Double { totalInflows - totalOutflows }
     
-    func npv(rate: Double, present: Date = Date()) -> Double {
+    public func npv(rate: Double, present: Date = Date()) -> Double {
         flows
             .compactMap { $0.presentValue(rate:rate, present: present) }
             .reduce(0, +)
