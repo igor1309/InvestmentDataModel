@@ -7,4 +7,15 @@
 
 public enum Currency: String {
     case rub, usd, euro
+    
+    var symbol: String {
+        switch self {
+        case .euro:
+            return "€"
+        case .usd:
+            return "$"
+        case .rub:
+            return "₽"
+        }
+    }
 }
