@@ -7,22 +7,22 @@
 
 import Foundation
 
-struct CashFlow: Identifiable {
-    var id = UUID()
+public struct CashFlow: Identifiable {
+    public var id = UUID()
     
-    var date: Date
-    var type: CashFlowType
-    var amount: Double
-    var currency: Currency
+    public var date: Date
+    public var type: CashFlowType
+    public var amount: Double
+    public var currency: Currency
     
-    enum CashFlowType: Double {
+    public enum CashFlowType: Double {
         case inflow = 1.0
         case outflow = -1.0
     }
 }
 
 extension CashFlow {
-    func presentValue(rate: Double, present: Date = Date()) -> Double? {
+    public func presentValue(rate: Double, present: Date = Date()) -> Double? {
         //  MARK: А ЧТО БУДЕТ ПРИ ОТРИЦАТЕЛЬНОЙ СТАВКЕ???
         //  guard rate >= 0 else { return nil }
         guard rate != 0 else { return amount * type.rawValue }

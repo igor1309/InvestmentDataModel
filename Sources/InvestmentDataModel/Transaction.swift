@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Transaction: Identifiable {
-    var id = UUID()
-    var date: Date
-    var amount: Double
-    var currency: Currency
-    var sender: Entity
-    var recipient: Entity
-    var note: String
+public struct Transaction: Identifiable {
+    public var id = UUID()
+    public var date: Date
+    public var amount: Double
+    public var currency: Currency
+    public var sender: Entity
+    public var recipient: Entity
+    public var note: String
 }
