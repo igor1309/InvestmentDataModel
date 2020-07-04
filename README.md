@@ -1,3 +1,3 @@
 # InvestmentDataModel
 
-A description of this package.
+Structures to work with investments.
