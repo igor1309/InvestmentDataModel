@@ -32,4 +32,14 @@ public struct Payment: Identifiable, Equatable {
         self.note = note
     }
     
+    static func empty() -> Payment {
+        Payment(
+            date: Date(),
+            amount: 0,
+            currency: .rub,
+            sender: Entity.empty(),
+            recipient: Entity.empty(),
+            note: ""
+        )
+    }
 }

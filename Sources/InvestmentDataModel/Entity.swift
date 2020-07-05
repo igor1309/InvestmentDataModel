@@ -16,4 +16,8 @@ public struct Entity: Identifiable, Equatable, Hashable {
         self.name = name
         self.note = note
     }
+    
+    static func empty() -> Entity {
+        Entity("", note: "")
+    }
 }
