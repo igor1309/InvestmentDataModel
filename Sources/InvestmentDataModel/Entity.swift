@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Entity: Identifiable, Equatable {
+public struct Entity: Identifiable, Equatable, Hashable {
     public var id = UUID()
     public var name: String
     
