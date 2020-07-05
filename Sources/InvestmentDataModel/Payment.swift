@@ -32,7 +32,7 @@ public struct Payment: Identifiable, Equatable {
         self.note = note
     }
     
-    static func empty() -> Payment {
+    public static func empty() -> Payment {
         Payment(
             date: Date(),
             amount: 0,
