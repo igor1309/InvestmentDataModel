@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Payment: Identifiable {
+public struct Payment: Identifiable, Equatable {
     public var id = UUID()
     public var date: Date
     public var amount: Double
