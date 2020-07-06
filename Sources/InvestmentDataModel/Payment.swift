@@ -31,15 +31,4 @@ public struct Payment: Identifiable, Equatable {
         self.recipient = recipient
         self.note = note
     }
-    
-    public static func empty() -> Payment {
-        Payment(
-            date: Date(),
-            amount: 0,
-            currency: .rub,
-            sender: Entity.empty(),
-            recipient: Entity.empty(),
-            note: ""
-        )
-    }
 }

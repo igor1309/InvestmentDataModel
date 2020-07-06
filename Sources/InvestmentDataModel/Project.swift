@@ -74,9 +74,3 @@ public struct Project: Identifiable, Equatable {
             .reduce(0, +)
     }
 }
-
-extension Project {
-    public static func empty() -> Project {
-        Project(name: "", note: "", entities: [], payments: [])
-    }
-}
