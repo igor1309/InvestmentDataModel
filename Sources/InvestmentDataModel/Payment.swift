@@ -18,8 +18,9 @@ public struct Payment: Identifiable, Equatable, Codable {
     public var note: String
     
     public enum PaymentType: String, CaseIterable, Codable {
-        case investment = "Investment"
-        case `return` = "Return"
+        case investment, `return`
+        
+        var id: String { rawValue.capitalized }
     }
     
     public init(
