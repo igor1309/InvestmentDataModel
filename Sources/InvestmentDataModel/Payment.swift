@@ -17,7 +17,7 @@ public struct Payment: Identifiable, Equatable {
     public var recipient: Entity
     public var note: String
     
-    public enum PaymentType: String {
+    public enum PaymentType: String, CaseIterable {
         case investment = "Investment"
         case `return` = "Return"
     }
