@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Payment: Identifiable, Equatable {
+public struct Payment: Identifiable, Equatable, Codable {
     public var id = UUID()
     public var date: Date
     public var amount: Double
@@ -17,7 +17,7 @@ public struct Payment: Identifiable, Equatable {
     public var recipient: Entity
     public var note: String
     
-    public enum PaymentType: String, CaseIterable {
+    public enum PaymentType: String, CaseIterable, Codable {
         case investment = "Investment"
         case `return` = "Return"
     }

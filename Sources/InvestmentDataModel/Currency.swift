@@ -5,7 +5,7 @@
 //  Created by Igor Malyarov on 04.07.2020.
 //
 
-public enum Currency: String {
+public enum Currency: String, Codable {
     case rub, usd, euro
     
     public var symbol: String {
