@@ -45,10 +45,12 @@ public struct Project: Identifiable, Equatable {
                     return nil
                 }
                 
-                return CashFlow(date: payment.date,
-                                type: type,
-                                amount: payment.amount,
-                                currency: payment.currency)
+                return CashFlow(
+                    date: payment.date,
+                    type: type,
+                    amount: payment.amount,
+                    currency: payment.currency
+                )
             }
     }
     
