@@ -20,7 +20,7 @@ public struct Payment: Identifiable, Equatable, Codable {
     public enum PaymentType: String, CaseIterable, Codable {
         case investment, `return`
         
-        var id: String { rawValue.capitalized }
+        public var id: String { rawValue.capitalized }
     }
     
     public init(
