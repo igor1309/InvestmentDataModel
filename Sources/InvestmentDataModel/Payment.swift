@@ -13,8 +13,8 @@ public struct Payment: Identifiable, Equatable, Codable {
     public var amount: Double
     public var currency: Currency
     public var type: PaymentType
-    public var sender: Entity
-    public var recipient: Entity
+    public var senderID: UUID
+    public var recipientID: UUID
     public var note: String
     
     public enum PaymentType: String, CaseIterable, Codable {
@@ -28,16 +28,16 @@ public struct Payment: Identifiable, Equatable, Codable {
         amount: Double,
         currency: Currency,
         type: PaymentType,
-        sender: Entity,
-        recipient: Entity,
+        senderID: UUID,
+        recipientID: UUID,
         note: String
     ) {
         self.date = date
         self.amount = amount
         self.currency = currency
         self.type = type
-        self.sender = sender
-        self.recipient = recipient
+        self.senderID = senderID
+        self.recipientID = recipientID
         self.note = note
     }
 }
