@@ -31,18 +31,12 @@ public struct Project: Identifiable, Equatable, Codable {
     public var flows: [CashFlow] {
         payments
             .compactMap { payment in
-                //  derive cash flow type from sender and recipient entities
-                let isRecipient = entities.contains { $0 == payment.recipient }
-                let isSender = entities.contains { $0 == payment.sender }
-                
                 let type: CashFlow.CashFlowType
-                if isRecipient  {
+                switch payment.type {
+                case .investment:
                     type = .inflow
-                } else if isSender {
+                case .return:
                     type = .outflow
-                } else {
-                    print("error: \(name) is neither a sender or recipient in the payment \(id)")
-                    return nil
                 }
                 
                 return CashFlow(
