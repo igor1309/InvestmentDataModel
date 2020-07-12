@@ -13,18 +13,15 @@ public struct CashFlow: Identifiable {
     public var date: Date
     public var type: CashFlowType
     public var amount: Double
-    public var currency: Currency
     
     public init(
         date: Date,
         type: CashFlowType,
-        amount: Double,
-        currency: Currency
+        amount: Double
     ) {
         self.date = date
         self.type = type
         self.amount = amount
-        self.currency = currency
     }
     
     public enum CashFlowType: Double {

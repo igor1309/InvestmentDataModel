@@ -13,17 +13,21 @@ public struct Project: Identifiable, Equatable, Codable {
     public var name: String
     public var note: String
     
+    public var currency: Currency
+    
     public var entities: [Entity]
     public var payments: [Payment]
     
     public init(
         name: String,
         note: String,
+        currency: Currency,
         entities: [Entity],
         payments: [Payment]
     ) {
         self.name = name
         self.note = note
+        self.currency = currency
         self.entities = entities
         self.payments = payments
     }
@@ -42,8 +46,7 @@ public struct Project: Identifiable, Equatable, Codable {
                 return CashFlow(
                     date: payment.date,
                     type: type,
-                    amount: payment.amount,
-                    currency: payment.currency
+                    amount: payment.amount
                 )
             }
     }

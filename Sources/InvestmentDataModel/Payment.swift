@@ -11,7 +11,6 @@ public struct Payment: Identifiable, Equatable, Codable {
     public var id = UUID()
     public var date: Date
     public var amount: Double
-    public var currency: Currency
     public var type: PaymentType
     public var senderID: UUID
     public var recipientID: UUID
@@ -26,7 +25,6 @@ public struct Payment: Identifiable, Equatable, Codable {
     public init(
         date: Date,
         amount: Double,
-        currency: Currency,
         type: PaymentType,
         senderID: UUID,
         recipientID: UUID,
@@ -34,7 +32,6 @@ public struct Payment: Identifiable, Equatable, Codable {
     ) {
         self.date = date
         self.amount = amount
-        self.currency = currency
         self.type = type
         self.senderID = senderID
         self.recipientID = recipientID
